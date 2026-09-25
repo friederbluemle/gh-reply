@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/cli/go-gh"
-	"github.com/cli/go-gh/pkg/markdown"
-	"github.com/cli/go-gh/pkg/tableprinter"
-	"github.com/cli/go-gh/pkg/term"
+	"github.com/cli/go-gh/v2/pkg/api"
+	"github.com/cli/go-gh/v2/pkg/markdown"
+	"github.com/cli/go-gh/v2/pkg/tableprinter"
+	"github.com/cli/go-gh/v2/pkg/term"
 	graphql "github.com/cli/shurcooL-graphql"
 )
 
@@ -26,7 +26,7 @@ type SavedRepliesAndTotalCount struct {
 }
 
 func ListSavedReplies(first int) (*SavedRepliesAndTotalCount, error) {
-	client, err := gh.GQLClient(nil)
+	client, err := api.DefaultGraphQLClient()
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func ListSavedReplies(first int) (*SavedRepliesAndTotalCount, error) {
 }
 
 func GetSavedReply(id string) (*SavedReply, error) {
-	client, err := gh.GQLClient(nil)
+	client, err := api.DefaultGraphQLClient()
 	if err != nil {
 		return nil, err
 	}

@@ -5,13 +5,13 @@ import (
 	"os"
 
 	"github.com/cli/cli/v2/pkg/surveyext"
-	"github.com/cli/go-gh/pkg/config"
+	"github.com/cli/go-gh/v2/pkg/config"
 )
 
 func Edit(initialValue string, stdin io.Reader, stdout io.Writer, stderr io.Writer) (string, error) {
 	editorCmd := os.Getenv("GH_EDITOR")
 	if editorCmd == "" {
-		cfg, err := config.Read()
+		cfg, err := config.Read(nil)
 		if err != nil {
 			return "", err
 		}

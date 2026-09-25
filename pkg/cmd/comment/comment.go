@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cli/go-gh"
+	"github.com/cli/go-gh/v2"
 	"github.com/kit494way/gh-reply/pkg/editor"
 	"github.com/kit494way/gh-reply/pkg/prompter"
 	"github.com/spf13/cobra"
